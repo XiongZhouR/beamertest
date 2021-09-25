@@ -1,0 +1,312 @@
+\documentclass[aspectratio=169]{beamer}
+\usepackage{babel}
+\usepackage{xeCJK}
+\usepackage{ctex}
+
+\usepackage[backend=bibtex,sorting=none]{biblatex}
+\addbibresource{beamertest.bib}
+\setbeamerfont{footnote}{size=\tiny}
+
+\usefonttheme[onlymath]{serif}
+
+% 加导航条
+\useoutertheme[width=3\baselineskip,right]{sidebar}
+% 目录标数字
+\setbeamertemplate{section in toc}[sections numbered] 
+% 无序列表用实心点
+\setbeamertemplate{itemize item}{$\bullet$}
+% 设置每页标题格式
+\setbeamertemplate{frametitle}
+  {\vspace{-0.5cm}
+   \insertframetitle
+   \vspace{-0.5cm}}
+% 去掉下面没用的导航条
+\setbeamertemplate{navigation symbols}{}
+% 设置页脚格式
+\makeatother
+\setbeamertemplate{footline}
+{
+  \leavevmode%
+  \hbox{%
+  \begin{beamercolorbox}[wd=.4\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+    \usebeamerfont{author in head/foot}\insertshortauthor
+  \end{beamercolorbox}
+
+  \begin{beamercolorbox}[wd=.6\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+    \usebeamerfont{title in head/foot}\insertshorttitle\hspace*{13em}
+    \insertframenumber{} / \inserttotalframenumber\hspace*{0ex}
+  \end{beamercolorbox}}
+
+  \vskip0pt%
+}
+\makeatletter
+
+
+% 定义颜色
+%\definecolor{alizarin}{rgb}{0.82, 0.1, 0.26} % 红色
+%\definecolor{DarkFern}{HTML}{407428} % 绿色
+%\colorlet{main}{DarkFern!100!white} % 第一种设置方法
+%\colorlet{main}{red!70!black} % 第二种设置方法
+\definecolor{bistre}{rgb}{0.24, 0.17, 0.12} % 黑色
+\definecolor{mygrey}{rgb}{0.52, 0.52, 0.51} % 灰色
+\colorlet{main}{green!50!black}
+\colorlet{text}{bistre!100!white}
+
+% 不同元素指定不同颜色，fg是本身颜色，bg是背景颜色，!num!改变数值提供渐变色
+\setbeamercolor{title}{fg=main}
+\setbeamercolor{frametitle}{fg=main}
+\setbeamercolor{section in toc}{fg=text}
+\setbeamercolor{normal text}{fg=text}
+\setbeamercolor{block title}{fg=main,bg=mygrey!14!white}
+\setbeamercolor{block body}{fg=black,bg=mygrey!10!white}
+\setbeamercolor{qed symbol}{fg=main} % 证明结束后的框颜色
+\setbeamercolor{math text}{fg=black}
+% 设置页脚对应位置颜色
+\setbeamercolor{author in head/foot}{fg=black, bg=mygrey!5!white}
+\setbeamercolor{title in head/foot}{fg=black, bg=mygrey!5!white}
+\setbeamercolor{structure}{fg=main, bg=mygrey!10!white} % 设置sidebar颜色
+
+% 左右页间距的排版
+\def\swidth{2.3cm}
+\setbeamersize{sidebar width right=\swidth}
+\setbeamersize{sidebar width left=\swidth}
+\setbeamerfont{title in sidebar}{size=\scriptsize}
+\setbeamerfont{section in sidebar}{size=\tiny}
+
+
+%-------------------正文-------------------------%
+
+\author{周雄}
+\title{学习汇报}
+\date{\today}
+
+\begin{document}
+
+\frame[plain]{\titlepage}
+
+\begin{frame}
+
+\tableofcontents
+\end{frame}
+
+\section{概率论基础知识}
+
+\frame{\tableofcontents[currentsection]}
+
+\subsection*{大数定律}
+
+\begin{frame}
+\frametitle{大数定律}
+{切比雪夫不等式}
+\vspace{0.3cm}
+\begin{theorem}
+  对任意随机变量$X$，若$E(X)$和$D(X)$存在，则对任意$\varepsilon >0$，
+  恒有
+\begin{equation}
+    P\{ |X-E(X)|\geqslant \varepsilon \} \leqslant \frac{D(X)}{\varepsilon ^2}
+\end{equation}  
+\end{theorem}
+\end{frame}
+
+\begin{frame}
+\frametitle{大数定律}
+{切比雪夫定理}
+\vspace{0.3cm}
+\begin{theorem}
+    设随机变量$X_{1}, X_{2}, \cdots, X_{n}, \cdots$相互独立，且具有相同的数学期望和方差：
+    $E\left(X_{k}\right)=\mu, D\left(X_{k}\right)=\sigma^{2}(k=1,2, \cdots)$
+    ，作前$n$个随机变量的算术平均\\
+    $$Y_{n}=\frac{1}{n} \sum_{k=1}^{n} X_{k}$$
+    则对任意的$\varepsilon >0$有
+\end{theorem}
+\end{frame}
+
+\begin{frame}[plain]
+    \begin{block}{定理}
+       $$\lim _{n \rightarrow \infty} P\left\{\left|Y_{n}-\mu\right|<\varepsilon\right\}$$
+    \begin{equation} \label{eq:qbxf}
+        = \lim_{n \to \infty} \left \{ \left | \frac{1}{n} \sum_{k=1}^{n}X_{k} -\mu    \right |< \varepsilon   \right \}= 1 
+    \end{equation}
+    \end{block}
+\end{frame}
+
+\subsection*{点估计}
+
+\begin{frame}
+\frametitle{点估计}
+{设总体$X$ 的分布类型为已知,但其中含有未知参数$\theta $($\theta $可以是向量).我们希望根据来自总体的样本$X_{1}, X_{2}, \cdots, X_{n}$
+来对未知参数进行估计.点估计,就是从样本出发构造适当的统计量,$\hat{\theta}=\hat{\theta}\left(X_{1}, \cdots, X_{n}\right)$
+作为未知参数$\theta $的估计量,当样本取得观测值$x_{1}, \cdots, x_{n}$后,就用$\hat{\theta}\left(x_{1}, \cdots, x_{n}\right)$
+作为$\theta $的估计值.}
+\end{frame}
+
+\subsubsection*{矩估计}
+
+\begin{frame}
+\frametitle{矩估计}
+{样本矩依概率收敛于相应的总体矩.参数点估计的\textbf{矩估计法}的基本思想是:以样本矩作为相应的总体矩的估计量,以样本矩的连续函数
+作为相应的总体矩的连续函数的估计量.}
+\end{frame}
+
+\subsubsection*{极大似然估计}
+
+\begin{frame}
+\frametitle{极大似然估计}
+\vspace{0.25cm}
+{
+  \begin{definition}
+    设总体$X$ 的密度函数为$f\left(x ; \theta_{1}, \cdots, \theta_{l}\right)$(或$X$ 的分布律为$p\left(x ; \theta_{1}, \cdots, \theta_{l}\right)$)
+    其中$\theta_{1}, \cdots, \theta_{l}$为未知参数.$\left(X_{1}, \cdots, X_{n}\right)$为样本,它的联合密度函数为
+    $\prod_{i=1}^{n} f\left(x_{i} ; \theta_{1}, \cdots, \theta_{l}\right)$(或联合分布律为$\prod_{i=1}^{n} p\left(x_{i} ; \theta_{1}, \cdots, \theta_{l}\right)$)
+    \\称$L\left(\theta_{1}, \cdots, \theta_{l}\right)=\prod_{i=1}^{n} f\left(x_{i} ; \theta_{1}, \cdots, \theta_{l}\right)$
+    \\(或$L\left(\theta_{1}, \cdots, \theta_{l}\right)=\prod_{i=1}^{n} p\left(x_{i} ; \theta_{1}, \cdots, \theta_{l}\right)$)
+    为$\theta_{1}, \cdots, \theta_{l}$的\textbf{似然函数}.若有$\hat{\theta}_{1}, \cdots, \hat{\theta}_{l}$使得下式
+    \begin{equation}
+      L\left ( \hat\theta _{1}  ,\cdots ,\hat \theta_{l}\right ) =\max _{\left.(\theta _{1}, \cdots, \theta_{l}\right)}L\left\{ \left(\theta_{1}, \cdots, \theta_{l}\right)\right \} 
+    \end{equation}
+    成立,则称$\hat{\theta}_{j}=\hat{\theta}_{j}\left(X_{1}, \cdots, X_{n}\right) (j=1,2,\cdots ,l)$为$\theta_{j}$
+    的\textbf{极大似然估计量}.
+  \end{definition}
+}
+\end{frame}
+
+
+
+\section{粗糙集理论基础知识}
+
+\frame{\tableofcontents[currentsection]}
+
+\subsection*{粗糙集}
+
+\begin{frame}
+\frametitle{粗糙集}
+\begin{definition}
+  给定知识库$K=(U, \mathbf{R})$,令$X \subseteq U$, $R$ 为$U$ 上的一个等价关系,当$X$ 能表达成某些$R$ 基本概念的并时,则$X$ 是$R$ 可定义
+  的,否则称$X$ 为$R$ 不可定义集.$R$ 可定义集称为$R$ 精确集,而$R$ 不可定义集称为$R$ 粗糙集.\\
+  对于任何的$R \in$ $\mathit{ind}$ $(K)$, $X$ 都为 $R$ 粗糙集,则称$X$ 为$K$ 中的粗糙集. 
+\end{definition}
+
+\end{frame}
+
+\subsection*{上近似与下近似}
+
+\begin{frame}
+  \frametitle{上近似与下近似}
+  \begin{definition}
+    给定知识库$K=(U, \mathbf{R})$,对于每个子集$X \subseteq U$ 和一个等价关系$R \in$ $\mathit{ind}$ $(K)$,定义两个子集:\\
+    $$\underline{R} X=\left \{  x \in U|[x]_{R} \subseteq X\right \} ,$$
+    $$\overline{R}  X=\left \{  x \in U|[x]_{R} \cap X \neq \varnothing\right \} .$$
+    分别称他们为$X$ 的$R$ 下近似集和$R$ 上近似集.
+  \end{definition}
+  
+\end{frame}
+
+\subsection*{Bayes决策}
+
+\begin{frame}[t]
+  \frametitle{Bayes决策}
+  \vspace{0.3cm}
+  设$\Omega=\left\{w_{1}, w_{2}, \cdots, w_{s}\right\}$是具有有限个特征状态的集合,\\$A=\left\{r_{1}, r_{2}, \cdots, r_{m}\right\}$
+  是由$m$ 个可能的决策行为构成的集合.\\$P\left(w_{j} \mid[x]\right)$表示一个对象在描述$[x]$ 下处于状态$w_{j}$ 的概率,\\
+  令$\lambda\left(r_{i} \mid w_{j}\right)$表示状态为$w_{j}$ 时采用决策$r_{i}$ 的风险损失.\\
+  则对象在给定描述$[x]$ 下采用决策$r_{j}$ 的期望损失(条件风险)为:
+  $$R\left(r_{i} \mid[x]\right)=\sum_{j=1}^{s} \lambda\left(r_{i}
+  \mid w_{j}\right) P\left(w_{j} \mid[x]\right)$$
+  Bayes决策过程即选取一个使得条件风险$R\left(r_{i} \mid[x]\right), i=1,2, \cdots, m$达到最小的决策作为最佳决策(结果为两个及以上根据实际情况选取其中之一).
+
+\end{frame}
+
+\section{文献阅读}
+
+\frame{\tableofcontents[currentsection]}
+
+
+\begin{frame}[t]
+  \frametitle{Three-Way Decision:\\An Interpretation of Rules in Rough Set Theory}
+  \vspace{0.3cm}
+  (1)研究内容:对粗糙集理论的三支决策规则基本内容介绍\\
+  \vspace{0.2cm}
+
+  (2)研究路线:从经典粗糙集模型规则到概率粗糙集模型规则\\
+  \vspace{0.2cm}
+  经典粗糙集模型:依据上近似集和下近似集来确定$\operatorname{POS}(X)$,$\operatorname{BND}(X)$,$\mathrm{NEG}(X)$.\\
+  \vspace{0.2cm}
+  概率粗糙集模型:基于完善的Bayes决策程序,可以推导出最合适的概率阀值来定义$\operatorname{POS}(X)$,$\operatorname{BND}(X)$,$\mathrm{NEG}(X)$.\\
+  \vspace{0.2cm}
+  (3)研究的意义:使用正域,边界域,负域来表达三支决策,提出的解释规则也一并解释了经典模型和概率模型的规则.作者的观点是所提出的解释规则提供了不同的研究途径.
+\footfullcite{yao2009three}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Three-way decisions with probabilistic rough sets}
+  \vspace{0.3cm}
+  (1)研究内容:主要集中在分析经典粗糙集和概率粗糙集模型中的三支决策规则,通过Bayes决策理论和假设检验思想丰富粗糙集理论.\\
+  \vspace{0.2cm}
+  (2)研究路线:\\
+  \begin{itemize}
+    \item 总结经典粗糙集模型单个概念的规则
+    \begin{itemize}
+      \item 经典粗糙集模型的基本内容
+      \item 经典粗糙集模型中的三支决策规则
+      \item 经典粗糙集模型的限制
+    \end{itemize}
+  \end{itemize}
+  \footfullcite{yao2010three}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Three-way decisions with probabilistic rough sets}
+  \vspace{0.3cm}
+  
+  \begin{itemize}
+    \item 单个概念的概率粗糙集模型
+    \begin{itemize}
+      \item Bayes决策理论粗糙集模型
+      \item 概率(粗糙集)规则(即上一篇文章所提出的解释规则)
+    \end{itemize}
+    \item 应用概率粗糙集三支决策模型来处理二支分类\\
+    \vspace{0.2cm}
+    根据阀值的实际取值来分析二支分类的概率置信度与阀值的关系
+  \end{itemize}
+  \vspace{0.1cm}
+  (3)研究的意义:通过概率粗糙集模型构建的三支决策规则类似于统计的假设检验思想,三支决策规则也可以应用在二支分类及多类别分类,而概率近似的思想
+  代表接收或拒绝的决定都是在一定程度的容错范围内做出,而容忍度是根据Bayes决策程序系统确定.
+  \footfullcite{yao2010three}
+\end{frame}
+
+\begin{frame}
+  \frametitle{The superiority of three-way decisions in probabilistic rough set models}
+  \vspace{0.3cm}
+  (1)研究内容:通过比较标准粗糙集模型的概率三支决策、概率二支决策和定性三支决策来证明在特定条件下，考虑因素是不同分类类型错误
+  分类的代价时，概率三支决策相对于其他两种决策结果是更有优势的.\\
+  \vspace{0.2cm}
+  (2)研究路线:
+  \begin{itemize}
+    \item 粗糙集近似和定性三支决策模型
+    \vspace{0.2cm}
+    \item 概率二支决策和概率三支决策
+    \begin{itemize}
+      \item Bayes决策理论内容
+      \item 概率二支决策模型
+      \item 概率三支决策模型
+    \end{itemize}
+  \end{itemize}
+  \footfullcite{yao2011superiority}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{The superiority of three-way decisions in probabilistic rough set models}
+  \vspace{0.3cm}
+  \begin{itemize}
+    \item 三种模型的比较
+    \begin{itemize}
+      \item 从微观层面分析三种模型(通过代价)
+      \item 从宏观层面分析三种模型(通过接受率,延迟决策率,拒绝率,接受精度等)
+    \end{itemize}
+  \end{itemize}
+  \vspace{0.2cm}
+  (3)研究的意义:对概率三支决策模型的优越性提供了论据和理由,结论遵循决策理论的粗糙集模型,分析确定了概率三支决策模型寻找最小总代价分类器在什么情况下是相对更优的.
+  \footfullcite{yao2011superiority}
+\end{frame}
+\end{document}

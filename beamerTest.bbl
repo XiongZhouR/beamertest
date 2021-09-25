@@ -1,0 +1,93 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.1 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated as
+% required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+\datalist[entry]{none/global//global/global}
+  \entry{yao2009three}{inproceedings}{}
+    \name{author}{1}{}{%
+      {{hash=YY}{%
+         family={Yao},
+         familyi={Y\bibinitperiod},
+         given={Yiyu},
+         giveni={Y\bibinitperiod},
+      }}%
+    }
+    \list{organization}{1}{%
+      {Springer}%
+    }
+    \strng{namehash}{YY1}
+    \strng{fullhash}{YY1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{booktitle}{International Conference on Rough Sets and Knowledge
+  Technology}
+    \field{pages}{642\bibrangedash 649}
+    \field{title}{Three-way decision: an interpretation of rules in rough set
+  theory}
+    \field{year}{2009}
+  \endentry
+
+  \entry{yao2010three}{article}{}
+    \name{author}{1}{}{%
+      {{hash=YY}{%
+         family={Yao},
+         familyi={Y\bibinitperiod},
+         given={Yiyu},
+         giveni={Y\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Elsevier}%
+    }
+    \strng{namehash}{YY1}
+    \strng{fullhash}{YY1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{number}{3}
+    \field{pages}{341\bibrangedash 353}
+    \field{title}{Three-way decisions with probabilistic rough sets}
+    \field{volume}{180}
+    \field{journaltitle}{Information sciences}
+    \field{year}{2010}
+  \endentry
+
+  \entry{yao2011superiority}{article}{}
+    \name{author}{1}{}{%
+      {{hash=YY}{%
+         family={Yao},
+         familyi={Y\bibinitperiod},
+         given={Yiyu},
+         giveni={Y\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Elsevier}%
+    }
+    \strng{namehash}{YY1}
+    \strng{fullhash}{YY1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{number}{6}
+    \field{pages}{1080\bibrangedash 1096}
+    \field{title}{The superiority of three-way decisions in probabilistic rough
+  set models}
+    \field{volume}{181}
+    \field{journaltitle}{Information Sciences}
+    \field{year}{2011}
+  \endentry
+\enddatalist
+\endinput
